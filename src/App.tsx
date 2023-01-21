@@ -15,7 +15,7 @@ function App() {
         <Card>
           <CityOverview city={Cities[565]} />
         </Card>
-        <Card>
+        <Card borderRadius={10}>
           <CityOverview city={Cities[450]} />
         </Card>
       </div>
