@@ -1,0 +1,1 @@
+export const NB_RESIDENTS_LIMIT = 100000;

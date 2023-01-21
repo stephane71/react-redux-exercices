@@ -8,9 +8,9 @@ function App() {
     <div className="App">
       <h1>Formation React et Redux</h1>
       <div>
-        <CityOverviewCard city={Cities[20]} />
-        <CityOverviewCard city={Cities[565]} />
-        <CityOverviewCard city={Cities[450]} />
+        {Cities.map((city) => (
+          <CityOverviewCard city={city} key={city.code} />
+        ))}
       </div>
     </div>
   );
