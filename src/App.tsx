@@ -4,12 +4,22 @@ import "./App.css";
 import CityOverviewCard from "./components/CityOverviewCard";
 
 function App() {
+  function handleClickCity(city) {
+    return () => {
+      alert(city.nom);
+    };
+  }
+
   return (
     <div className="App">
       <h1>Formation React et Redux</h1>
       <div>
         {Cities.map((city) => (
-          <CityOverviewCard city={city} key={city.code} />
+          <CityOverviewCard
+            city={city}
+            key={city.code}
+            onClick={handleClickCity(city)}
+          />
         ))}
       </div>
     </div>
