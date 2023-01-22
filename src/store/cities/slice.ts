@@ -8,11 +8,19 @@ export const fetchCities = createAsyncThunk("cities/fetchCities", async () => {
   return cities.filter(({ population }) => population > NB_RESIDENTS_LIMIT);
 });
 
+export const fetchCity = createAsyncThunk("cities/fetchCity", async (code) => {
+  const response = await fetch(`https://geo.api.gouv.fr/communes/${code}`);
+  const city = await response.json();
+  console.log(city);
+  return city;
+});
+
 export const slice = createSlice({
   name: "cities",
   initialState: {
     cities: [],
     status: "idle",
+    city: null,
   },
   reducers: {
     sortBy: (state, action) => {
@@ -30,6 +38,9 @@ export const slice = createSlice({
       })
       .addCase(fetchCities.pending, (state) => {
         return { ...state, status: "pending" };
+      })
+      .addCase(fetchCity.fulfilled, (state, action) => {
+        return { ...state, city: action.payload };
       });
   },
 });

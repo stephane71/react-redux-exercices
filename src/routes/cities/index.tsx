@@ -21,7 +21,7 @@ export default function Cities() {
       setLoading(true);
       setTimeout(() => {
         setLoading(false);
-      }, 5000);
+      }, 2000);
     }
   }, [status]);
 
