@@ -7,6 +7,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Cities from "./routes/cities";
 import City from "./routes/city";
 import { CssBaseline } from "@mui/material";
+import { Provider } from "react-redux";
+import store from "./store/store";
 import Counter from "./routes/counter";
 
 const router = createBrowserRouter([
@@ -36,7 +38,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <CssBaseline />
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
 
