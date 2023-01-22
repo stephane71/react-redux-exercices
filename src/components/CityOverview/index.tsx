@@ -16,7 +16,7 @@ export default function CityOverview({ city }) {
     <div className={styles.CityOverview}>
       <img
         alt="flag"
-        src={`./${name}${code}.svg`}
+        src={`/${name}${code}.svg`}
         width={IMG_SIZE}
         height={IMG_SIZE}
         onError={handleError}

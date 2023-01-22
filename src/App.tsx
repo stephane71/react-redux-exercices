@@ -1,21 +1,19 @@
-import React, { useCallback, useState } from "react";
-import Cities from "./assets/cities.json";
+import React from "react";
 import "./App.css";
-import { CityOverviewCardsListMemo } from "./components/CityOverviewCardsList";
+import { Link, Outlet } from "react-router-dom";
 
 function App() {
-  const [selectedCity, setSelectedCity] = useState(null);
-
-  const handleClickCity = useCallback((city) => {
-    setSelectedCity(city);
-  }, []);
-
   return (
-    <div className="App">
-      <h1>Formation React et Redux</h1>
-      {selectedCity && <div>Votre sélection: {selectedCity.nom}</div>}
+    <div>
+      <Link to={"/"}>
+        <h1>Cours React / Redux</h1>
+      </Link>
       <div>
-        <CityOverviewCardsListMemo cities={Cities} onClick={handleClickCity} />
+        <h2>Menu</h2>
+        <Link to={`/cities`}>Liste des communes</Link>
+      </div>
+      <div>
+        <Outlet />
       </div>
     </div>
   );
