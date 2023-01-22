@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Cities from "./routes/cities";
 import City from "./routes/city";
+import { CssBaseline } from "@mui/material";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
+    <CssBaseline />
     <RouterProvider router={router} />
   </React.StrictMode>
 );

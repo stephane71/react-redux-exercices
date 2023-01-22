@@ -1,21 +1,39 @@
 import React from "react";
 import "./App.css";
-import { Link, Outlet } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Box, Toolbar } from "@mui/material";
+import AppBar from "./components/AppBar";
+import Drawer from "./components/Drawer";
 
 function App() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  function handleClickMenu(to) {
+    navigate(to);
+  }
+
   return (
-    <div>
-      <Link to={"/"}>
-        <h1>Cours React / Redux</h1>
-      </Link>
-      <div>
-        <h2>Menu</h2>
-        <Link to={`/cities`}>Liste des communes</Link>
-      </div>
-      <div>
-        <Outlet />
-      </div>
-    </div>
+    <Box sx={{ display: "flex" }}>
+      <AppBar onClickHeader={handleClickMenu} />
+
+      <Drawer onSelectMenuItem={handleClickMenu} />
+
+      <Box
+        component="main"
+        sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}
+      >
+        <Toolbar />
+        {location.pathname === "/" && (
+          <div>
+            Cette application regroupe les projets développés pendant le cours.
+          </div>
+        )}
+        <div>
+          <Outlet />
+        </div>
+      </Box>
+    </Box>
   );
 }
 
