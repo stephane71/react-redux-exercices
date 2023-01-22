@@ -35,6 +35,11 @@ export default function Drawer({ onSelectMenuItem }) {
             <ListItemText primary={"Liste des communes"} />
           </ListItemButton>
         </ListItem>
+        <ListItem disablePadding onClick={() => onSelectMenuItem("/counter")}>
+          <ListItemButton selected={location.pathname === "/counter"}>
+            <ListItemText primary={"Counter"} />
+          </ListItemButton>
+        </ListItem>
       </List>
     </DrawerMui>
   );

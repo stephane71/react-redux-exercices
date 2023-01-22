@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Cities from "./routes/cities";
 import City from "./routes/city";
 import { CssBaseline } from "@mui/material";
+import Counter from "./routes/counter";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "/cities/:code",
         element: <City />,
+      },
+      {
+        path: "/counter",
+        element: <Counter />,
       },
     ],
   },
